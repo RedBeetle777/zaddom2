@@ -24,7 +24,7 @@ public:
     ~List();
     void add(shared_ptr<Node> node);              // dodaje element na koniec listy
     void addFirst(shared_ptr<Node> node);         // dodaje element na początek listy
-    Node* get(const int value);                   // zwraca element o wskazanej wartości
+    shared_ptr<Node> get(const int value);        // zwraca element o wskazanej wartości
     shared_ptr<Node> getBackward(const int value) // zwraca element od końca listy
 
 private:
@@ -131,10 +131,10 @@ int main()
 {
     List lista;
     shared_ptr<Node> node4 {new Node(4)};
-    auto node7 = make_unique new Node(7)};
+    auto node7 = make_unique<Node>(7);
 
     lista.add(node4);
-    lista.add(new Node(2));
+    lista.add(make_shared<Node>(2));
     lista.add(node7);
     lista.add(new Node(9));
     auto node = lista.get(1);
